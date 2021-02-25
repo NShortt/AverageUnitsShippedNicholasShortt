@@ -81,7 +81,7 @@ namespace AverageUnitsShippedNicholasShortt
             this.textBoxEmployee1Entries.Name = "textBoxEmployee1Entries";
             this.textBoxEmployee1Entries.ReadOnly = true;
             this.textBoxEmployee1Entries.Size = new System.Drawing.Size(175, 221);
-            this.textBoxEmployee1Entries.TabIndex = 6;
+            this.textBoxEmployee1Entries.TabIndex = 4;
             this.toolTip.SetToolTip(this.textBoxEmployee1Entries, "Displays the units shipped for all days entered so far for employee 1.");
             // 
             // labelTotalAverageOutput
@@ -146,7 +146,7 @@ namespace AverageUnitsShippedNicholasShortt
             this.textBoxEmployee3Entries.Name = "textBoxEmployee3Entries";
             this.textBoxEmployee3Entries.ReadOnly = true;
             this.textBoxEmployee3Entries.Size = new System.Drawing.Size(175, 221);
-            this.textBoxEmployee3Entries.TabIndex = 8;
+            this.textBoxEmployee3Entries.TabIndex = 10;
             this.toolTip.SetToolTip(this.textBoxEmployee3Entries, "Displays the units shipped for all days entered so far for employee 3.");
             // 
             // labelEmployee1AverageOutput
@@ -155,7 +155,7 @@ namespace AverageUnitsShippedNicholasShortt
             this.labelEmployee1AverageOutput.Location = new System.Drawing.Point(12, 371);
             this.labelEmployee1AverageOutput.Name = "labelEmployee1AverageOutput";
             this.labelEmployee1AverageOutput.Size = new System.Drawing.Size(175, 38);
-            this.labelEmployee1AverageOutput.TabIndex = 9;
+            this.labelEmployee1AverageOutput.TabIndex = 5;
             this.labelEmployee1AverageOutput.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.toolTip.SetToolTip(this.labelEmployee1AverageOutput, "Displays the calculated average units for the week for employee 1.");
             // 
@@ -165,7 +165,7 @@ namespace AverageUnitsShippedNicholasShortt
             this.labelEmployee2AverageOutput.Location = new System.Drawing.Point(193, 371);
             this.labelEmployee2AverageOutput.Name = "labelEmployee2AverageOutput";
             this.labelEmployee2AverageOutput.Size = new System.Drawing.Size(175, 38);
-            this.labelEmployee2AverageOutput.TabIndex = 10;
+            this.labelEmployee2AverageOutput.TabIndex = 8;
             this.labelEmployee2AverageOutput.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.toolTip.SetToolTip(this.labelEmployee2AverageOutput, "Displays the calculated average units for the week for employee 2.");
             // 
@@ -193,7 +193,7 @@ namespace AverageUnitsShippedNicholasShortt
             this.labelEmployee2.Location = new System.Drawing.Point(212, 109);
             this.labelEmployee2.Name = "labelEmployee2";
             this.labelEmployee2.Size = new System.Drawing.Size(146, 35);
-            this.labelEmployee2.TabIndex = 4;
+            this.labelEmployee2.TabIndex = 6;
             this.labelEmployee2.Text = "Employee 2";
             this.labelEmployee2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -202,7 +202,7 @@ namespace AverageUnitsShippedNicholasShortt
             this.labelEmployee3.Location = new System.Drawing.Point(392, 109);
             this.labelEmployee3.Name = "labelEmployee3";
             this.labelEmployee3.Size = new System.Drawing.Size(146, 35);
-            this.labelEmployee3.TabIndex = 5;
+            this.labelEmployee3.TabIndex = 9;
             this.labelEmployee3.Text = "Employee 3";
             this.labelEmployee3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 

@@ -1,9 +1,9 @@
 ﻿// Programmer: Nicholas Shortt
-// Date:       January 21, 2021
+// Date:       February 25, 2021
 // Description:
 //  This application is design to record number of units shipped over 7 days
-//  and display the average units shipped per day.  The value entered will be 
-//  whole numeric numebrs in range of 0 and 5000
+//  for 3 employees and display the average units shipped per day for each as well as
+//  the total average.  The value entered will be whole numeric numebrs in range of 0 and 5000
 
 using System;
 using System.Collections.Generic;
@@ -30,7 +30,6 @@ namespace AverageUnitsShippedNicholasShortt
         // Declare variables
         int currentDay = 1;
         int currentEmployee = 1;
-        int overallTotal = 0;
 
         // Declare constants
         const int NumberOfEmployees = 3;
@@ -62,10 +61,12 @@ namespace AverageUnitsShippedNicholasShortt
 
 
         /// <summary>
-        /// For an entered unit, check if it is an interager, and whether it is in range of 0 to 5000.  If so add it to the
-        /// running total and display it on the form.  Else dispaly message inform user of the requred entry.  Then determine 
-        /// if the current day is seven or greate.  If so calculate the average total value and display it to the form.  
-        /// If not seven or greater then increment day and udpate current day on the form.
+        /// For an entered unit, check if it is an interager, and whether it is in range of 0 to 5000.  
+        /// If so a display it under the correct employee entry box.  Else dispaly message inform user 
+        /// of the requred entry.  Then determine if the current day is seven or greater.  If so calculate 
+        /// the average total value and display it to the form then reset day and increment current employee.  
+        /// If not seven or greater then increment day and udpate current day on the form.  After all employees
+        /// are handled stop user from entering more data and calculate and display overall average.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -104,6 +105,7 @@ namespace AverageUnitsShippedNicholasShortt
 
                         // Unbold current employee
                         employeeLabelArray[currentEmployee - 1].Font = new Font(this.Font, FontStyle.Regular);
+
                         // Reset days and increment employee
                         currentDay = 1;
                         currentEmployee++;
@@ -162,13 +164,6 @@ namespace AverageUnitsShippedNicholasShortt
                 // Set focus to unit entry text box
                 textBoxUnitsInput.Focus();
             }
-
-
-            //        // Add enter value to current total
-            //        totalUnitsShipped += unitsShipped;
-
-
-
         }
 
 
