@@ -18,9 +18,9 @@ using System.Windows.Forms;
 
 namespace AverageUnitsShippedNicholasShortt
 {
-    public partial class formAverageUnitsShipped : Form
+    public partial class formAverageUnitsShippedByEmployee : Form
     {
-        public formAverageUnitsShipped()
+        public formAverageUnitsShippedByEmployee()
         {
             InitializeComponent();
         }

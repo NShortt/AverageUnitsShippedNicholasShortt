@@ -17,7 +17,7 @@ namespace AverageUnitsShippedNicholasShortt
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new formAverageUnitsShipped());
+            Application.Run(new formAverageUnitsShippedByEmployee());
         }
     }
 }

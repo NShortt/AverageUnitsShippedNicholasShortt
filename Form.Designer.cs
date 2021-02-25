@@ -1,7 +1,7 @@
 ﻿
 namespace AverageUnitsShippedNicholasShortt
 {
-    partial class formAverageUnitsShipped
+    partial class formAverageUnitsShippedByEmployee
     {
         /// <summary>
         ///  Required designer variable.
@@ -206,7 +206,7 @@ namespace AverageUnitsShippedNicholasShortt
             this.labelEmployee3.Text = "Employee 3";
             this.labelEmployee3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // formAverageUnitsShipped
+            // formAverageUnitsShippedByEmployee
             // 
             this.AcceptButton = this.buttonEnter;
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
@@ -231,7 +231,7 @@ namespace AverageUnitsShippedNicholasShortt
             this.Controls.Add(this.labelUnitsPrompt);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "formAverageUnitsShipped";
+            this.Name = "formAverageUnitsShippedByEmployee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Average Units Shipped By Employee";
             this.ResumeLayout(false);
