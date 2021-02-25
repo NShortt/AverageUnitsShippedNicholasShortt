@@ -233,7 +233,7 @@ namespace AverageUnitsShippedNicholasShortt
             this.MinimizeBox = false;
             this.Name = "formAverageUnitsShipped";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Average Units Shipped";
+            this.Text = "Average Units Shipped By Employee";
             this.ResumeLayout(false);
             this.PerformLayout();
 
