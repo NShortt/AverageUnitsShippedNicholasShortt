@@ -31,13 +31,27 @@ namespace AverageUnitsShippedNicholasShortt
         double totalUnitsShipped;
         int currentDay = 1;
 
+        // Declare 2D array to contain entry labels
+        TextBox[,] entryTextBoxArray;
         
 
         #endregion
 
         #region "Event Handlers"
 
-
+        /// <summary>
+        /// Assigns the textbox array with the entry output textboxes
+        /// </summary>
+        private void FormLoad(object sender, EventArgs e)
+        {
+            // loop through 7 timee for days in a week and assign the entry textboxes.
+            for (int index = 0; index < 7; index++)
+            {
+                entryTextBoxArray[0, index] = textBoxEmployee1Entries;
+                entryTextBoxArray[1, index] = textBoxEmployee2Entries;
+                entryTextBoxArray[2, index] = textBoxEmployee3Entries;
+            }
+        }
 
 
         /// <summary>
