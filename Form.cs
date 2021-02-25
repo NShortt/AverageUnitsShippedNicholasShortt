@@ -25,9 +25,20 @@ namespace AverageUnitsShippedNicholasShortt
             InitializeComponent();
         }
 
+        #region "Variable Declaration"
+
         // Declare variables
         double totalUnitsShipped;
         int currentDay = 1;
+
+        
+
+        #endregion
+
+        #region "Event Handlers"
+
+
+
 
         /// <summary>
         /// For an entered unit, check if it is an interager, and whether it is in range of 0 to 5000.  If so add it to the
@@ -144,5 +155,7 @@ namespace AverageUnitsShippedNicholasShortt
         {
             Close();
         }
+
+        #endregion
     }
 }
