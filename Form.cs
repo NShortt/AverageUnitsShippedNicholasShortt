@@ -31,6 +31,10 @@ namespace AverageUnitsShippedNicholasShortt
         double totalUnitsShipped;
         int currentDay = 1;
 
+        // Declare constants
+        const int NumberOfEmployees = 3;
+        const int NumberOfDays = 7;
+
         // Declare 2D array to contain entry labels
         TextBox[,] entryTextBoxArray;
         
@@ -44,8 +48,8 @@ namespace AverageUnitsShippedNicholasShortt
         /// </summary>
         private void FormLoad(object sender, EventArgs e)
         {
-            // loop through 7 timee for days in a week and assign the entry textboxes.
-            for (int index = 0; index < 7; index++)
+            // loop through equal to the number of days and assign the entry textboxes.
+            for (int index = 0; index < NumberOfDays; index++)
             {
                 entryTextBoxArray[0, index] = textBoxEmployee1Entries;
                 entryTextBoxArray[1, index] = textBoxEmployee2Entries;
@@ -71,7 +75,7 @@ namespace AverageUnitsShippedNicholasShortt
             // Declare constants
             const int minUnitsShipped = 0;
             const int maxUnitsShipped = 5000;
-            const int maxDaysRecorded = 7;
+            
 
             // Check if entered value is an interager
             if (int.TryParse(textBoxUnitsInput.Text, out unitsShipped))
