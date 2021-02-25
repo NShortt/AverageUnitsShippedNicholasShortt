@@ -89,7 +89,7 @@ namespace AverageUnitsShippedNicholasShortt
                 else
                 {
                     // Display error message explaining what was wrong
-                    MessageBox.Show("Units shipped must be in range of 0 to 5000.  Please enter a new value.");
+                    MessageBox.Show("Units shipped must be in range of " + minUnitsShipped + " to " + maxUnitsShipped + ".  Please enter a new value.");
 
                     // Set focus to unit entry text box
                     textBoxUnitsInput.Focus();
