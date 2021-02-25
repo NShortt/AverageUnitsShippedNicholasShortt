@@ -132,31 +132,13 @@ namespace AverageUnitsShippedNicholasShortt
         }
 
         /// <summary>
-        /// Rest the form to its default state by clearing inputs and outputs, and change focus back to first input
+        /// Call the function to reset the form
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void ButtonEnterReset(object sender, EventArgs e)
         {
-            // Clear input and output fields
-            textBoxUnitsInput.Clear();
-            textBoxEmployee1Entries.Clear();
-            labelTotalAverageOutput.Text = String.Empty;
-
-            // Set back to first day
-            currentDay = 1;
-            labelDay.Text = "Day " + currentDay;
-
-            // Set the total units to 0
-            totalUnitsShipped = 0;
-            
-            // Enable entry and set focus for units input field
-            textBoxUnitsInput.ReadOnly = false;
-            textBoxUnitsInput.Focus();
-
-            // Enable the unit entry button
-            buttonEnter.Enabled = true;
-
+            ResetForm();
 
         }
 
@@ -168,6 +150,45 @@ namespace AverageUnitsShippedNicholasShortt
         private void ButtonExitClick(object sender, EventArgs e)
         {
             Close();
+        }
+
+        #endregion
+
+        #region "Functions"
+
+        /// <summary>
+        /// Rest the form to its default state by clearing inputs and outputs, and change focus back to first input
+        /// </summary>
+        private void ResetForm()
+        {
+            // Clear input and output fields
+            textBoxUnitsInput.Clear();
+            textBoxEmployee1Entries.Clear();
+            textBoxEmployee2Entries.Clear();
+            textBoxEmployee3Entries.Clear();
+            labelEmployee1AverageOutput.Text = String.Empty;
+            labelEmployee2AverageOutput.Text = String.Empty;
+            labelEmployee3AverageOutput.Text = String.Empty;
+            labelTotalAverageOutput.Text = String.Empty;
+
+            // Set back to first day
+            currentDay = 1;
+            labelDay.Text = "Day " + currentDay;
+
+            // Set the total units to 0
+            totalUnitsShipped = 0;
+
+            // Return employee labels to initial fonts
+            labelEmployee1.Font = new Font(this.Font, FontStyle.Bold);
+            labelEmployee2.Font = new Font(this.Font, FontStyle.Regular);
+            labelEmployee3.Font = new Font(this.Font, FontStyle.Regular);
+
+            // Enable entry and set focus for units input field
+            textBoxUnitsInput.ReadOnly = false;
+            textBoxUnitsInput.Focus();
+
+            // Enable the unit entry button
+            buttonEnter.Enabled = true;
         }
 
         #endregion
