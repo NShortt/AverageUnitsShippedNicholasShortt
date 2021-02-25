@@ -28,15 +28,21 @@ namespace AverageUnitsShippedNicholasShortt
         #region "Variable Declaration"
 
         // Declare variables
-        double totalUnitsShipped;
         int currentDay = 1;
+        int currentEmployee = 1;
+        int overallTotal = 0;
 
         // Declare constants
         const int NumberOfEmployees = 3;
         const int NumberOfDays = 7;
 
-        // Declare 2D array to contain entry labels
-        TextBox[,] entryTextBoxArray;
+        // Declare array to contain form controlls
+        TextBox[] entryTextBoxArray;
+        Label[] employeeLabelArray;
+        Label[] employeeAverageLabelArray;
+
+        // Declare 2D array to contain entry values
+        int[,] entryValueArray = new int[NumberOfEmployees, NumberOfDays];
         
 
         #endregion
@@ -44,17 +50,14 @@ namespace AverageUnitsShippedNicholasShortt
         #region "Event Handlers"
 
         /// <summary>
-        /// Assigns the textbox array with the entry output textboxes
+        /// Assigns the controls to the correct arrays on form load and makes sure it is in it's default state
         /// </summary>
         private void FormLoad(object sender, EventArgs e)
-        {
-            // loop through equal to the number of days and assign the entry textboxes.
-            for (int index = 0; index < NumberOfDays; index++)
-            {
-                entryTextBoxArray[0, index] = textBoxEmployee1Entries;
-                entryTextBoxArray[1, index] = textBoxEmployee2Entries;
-                entryTextBoxArray[2, index] = textBoxEmployee3Entries;
-            }
+        { 
+            entryTextBoxArray = new TextBox[] { textBoxEmployee1Entries, textBoxEmployee2Entries, textBoxEmployee3Entries };
+            employeeLabelArray = new Label[] { labelEmployee1, labelEmployee2, labelEmployee3 };
+            employeeAverageLabelArray = new Label[] { labelEmployee1AverageOutput, labelEmployee2AverageOutput, labelEmployee3AverageOutput };
+            ResetForm();
         }
 
 
@@ -68,52 +71,79 @@ namespace AverageUnitsShippedNicholasShortt
         /// <param name="e"></param>
         private void ButtonEnterClick(object sender, EventArgs e)
         {
-            // Declare variable
-            int unitsShipped;
-            double averageUnitsShipped;
-
             // Declare constants
             const int minUnitsShipped = 0;
             const int maxUnitsShipped = 5000;
-            
 
             // Check if entered value is an interager
-            if (int.TryParse(textBoxUnitsInput.Text, out unitsShipped))
+            if (int.TryParse(textBoxUnitsInput.Text, out entryValueArray[currentEmployee - 1, currentDay - 1]))
             {
                 // Check if the value entered is within range of 0 to 5000
-                if (minUnitsShipped <= unitsShipped && unitsShipped <= maxUnitsShipped)
+                if (minUnitsShipped <= entryValueArray[currentEmployee - 1, currentDay - 1] 
+                    && entryValueArray[currentEmployee - 1, currentDay - 1] <= maxUnitsShipped)
                 {
-                    // Add enter value to current total
-                    totalUnitsShipped += unitsShipped;
-
-                    // Record and display units shipped to the form
-                    textBoxEmployee1Entries.Text += textBoxUnitsInput.Text + "\r\n";
-
+                    // Display value in the entry textbox
+                    entryTextBoxArray[currentEmployee - 1].Text += entryValueArray[currentEmployee - 1, currentDay - 1] + "\r\n";
+                    
                     // Clear the unit entry box
                     textBoxUnitsInput.Clear();
-                        
+
                     // Check if the value entered was for the seventh day
-                    if (currentDay >= maxDaysRecorded)
+                    if (currentDay++ >= NumberOfDays)
+                    {
+                        int employeeTotal = 0;
+
+                        // Get the total number of units shipped for the employee
+                        for (int day = 0; day < NumberOfDays; day++)
+                        {
+                            employeeTotal += entryValueArray[currentEmployee - 1, day];
+                        }
+
+                        // Calculate and display the average units shipped
+                        employeeAverageLabelArray[currentEmployee - 1].Text = "Average: " + Math.Round((double)employeeTotal / NumberOfDays, 2);
+
+                        // Unbold current employee
+                        employeeLabelArray[currentEmployee - 1].Font = new Font(this.Font, FontStyle.Regular);
+                        // Reset days and increment employee
+                        currentDay = 1;
+                        currentEmployee++;
+                    }
+
+                    // Change label displaying the day
+                    labelDay.Text = "Day " + currentDay;
+
+                    // Check if we have entered all employees.
+                    if (currentEmployee > NumberOfEmployees)
                     {
                         // Prevent user from entering more data by disabling enter button and changing entry box to read only
                         buttonEnter.Enabled = false;
                         textBoxUnitsInput.ReadOnly = true;
 
+                        // Set focus to reset button
+                        buttonReset.Focus();
 
-                        // Calculate the average units shipped
-                        averageUnitsShipped = totalUnitsShipped / currentDay;
+                        int total = 0;
+                        // Get the total number of units shipped overall
+                        for (int employee = 0; employee < NumberOfEmployees; employee++)
+                        {
+                            for (int day = 0; day < NumberOfDays; day++)
+                            {
+                                total += entryValueArray[employee, day];
+                            }
+                        }
 
-                        // Display the average units shipped to the form rounded to two decimals
-                        labelTotalAverageOutput.Text = "Average per day: " + Math.Round(averageUnitsShipped, 2);
+                        // Calculate and display the average units shipped overall
+                        labelTotalAverageOutput.Text = "Average per day: " + Math.Round((double)total / entryValueArray.Length, 2);
+
+                        // Change day label text to done
+                        labelDay.Text = "Done";
                     }
                     else
                     {
-                        // Increment the current day
-                        currentDay++;
-
-                        // Change label displaying the day
-                        labelDay.Text = "Day " + currentDay;
+                        // Bold current employee
+                        employeeLabelArray[currentEmployee - 1].Font = new Font(this.Font, FontStyle.Bold);                    
                     }
+                    
                 }
                 else
                 {
@@ -133,7 +163,16 @@ namespace AverageUnitsShippedNicholasShortt
                 textBoxUnitsInput.Focus();
             }
 
+
+            //        // Add enter value to current total
+            //        totalUnitsShipped += unitsShipped;
+
+
+
         }
+
+
+
 
         /// <summary>
         /// Call the function to reset the form
@@ -175,12 +214,10 @@ namespace AverageUnitsShippedNicholasShortt
             labelEmployee3AverageOutput.Text = String.Empty;
             labelTotalAverageOutput.Text = String.Empty;
 
-            // Set back to first day
+            // Set back to first day and employee
             currentDay = 1;
+            currentEmployee = 1;
             labelDay.Text = "Day " + currentDay;
-
-            // Set the total units to 0
-            totalUnitsShipped = 0;
 
             // Return employee labels to initial fonts
             labelEmployee1.Font = new Font(this.Font, FontStyle.Bold);
@@ -198,3 +235,4 @@ namespace AverageUnitsShippedNicholasShortt
         #endregion
     }
 }
+
