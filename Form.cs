@@ -58,7 +58,7 @@ namespace AverageUnitsShippedNicholasShortt
                     totalUnitsShipped += unitsShipped;
 
                     // Record and display units shipped to the form
-                    textBoxPastEntries.Text += textBoxUnitsInput.Text + "\r\n";
+                    textBoxEmployee1Entries.Text += textBoxUnitsInput.Text + "\r\n";
 
                     // Clear the unit entry box
                     textBoxUnitsInput.Clear();
@@ -75,7 +75,7 @@ namespace AverageUnitsShippedNicholasShortt
                         averageUnitsShipped = totalUnitsShipped / currentDay;
 
                         // Display the average units shipped to the form rounded to two decimals
-                        labelAverageOutput.Text = "Average per day: " + Math.Round(averageUnitsShipped, 2);
+                        labelTotalAverageOutput.Text = "Average per day: " + Math.Round(averageUnitsShipped, 2);
                     }
                     else
                     {
@@ -115,8 +115,8 @@ namespace AverageUnitsShippedNicholasShortt
         {
             // Clear input and output fields
             textBoxUnitsInput.Clear();
-            textBoxPastEntries.Clear();
-            labelAverageOutput.Text = String.Empty;
+            textBoxEmployee1Entries.Clear();
+            labelTotalAverageOutput.Text = String.Empty;
 
             // Set back to first day
             currentDay = 1;
